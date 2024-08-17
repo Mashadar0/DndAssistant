@@ -50,6 +50,8 @@ namespace DndAssistant.Controllers
                 newWeapon.Id = maxId + 1;
             }
 
+            ValidationWeapon(ref newWeapon);
+
             // Добавление нового элемента в коллекцию
             weapons.Add(newWeapon);
 
@@ -115,6 +117,7 @@ namespace DndAssistant.Controllers
                 if (existingWeapon != null)
                 {
                     weapons.Remove(existingWeapon);
+                    ValidationWeapon(ref weapon);
                     weapons.Add(weapon);
                     await JsonRW.SaveDataAsync(filePathWeapons, weapons);
                     return RedirectToAction(nameof(Index));
@@ -162,130 +165,20 @@ namespace DndAssistant.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //List<Weapon> weapons = [];
-        // GET: WeaponController
-        //public ActionResult Index()
-        //{
-        //    //загрузка данных из файла
-        //    //weapons = jsonRW.ReadWeapons();
-
-        //    return View(weapons);
-        //}
-
-        //// GET: WeaponController/Details/5
-        //public ActionResult Details(int id)
-        //{
-        //    return View();
-        //}
-
-        //// GET: WeaponController/Create
-        //public ActionResult Create()
-        //{
-        //    //ViewBag.DamageType = new Microsoft.AspNetCore.Mvc.Rendering.SelectList(Enum.GetValues(typeof(DamageType)));
-        //    return View();
-        //}
-
-        //// POST: WeaponController/Create
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create(IFormCollection collection/*, Weapon weapon*/)
-        //{
-        //    try
-        //    {
-        //        //weapons = jsonRW.ReadWeapons();
-
-        //        //Weapon newWeapon = new();
-        //        //StringValues newValue;
-        //        //collection.TryGetValue("Name", out newValue);
-        //        //newWeapon.Name = newValue;
-        //        //collection.TryGetValue("Description", out newValue);
-        //        //newWeapon.Description = newValue;
-        //        //collection.TryGetValue("Weight", out newValue);
-        //        //newWeapon.Weight = int.Parse(newValue);
-        //        //collection.TryGetValue("Cost", out newValue);
-        //        //newWeapon.Cost = int.Parse(newValue);
-        //        //collection.TryGetValue("MoneyType", out newValue);
-        //        //newWeapon.MoneyType = (MoneyType)Enum.Parse(typeof(MoneyType), newValue);
-        //        //collection.TryGetValue("DamageType", out newValue);
-        //        //newWeapon.DamageType = (DamageType)Enum.Parse(typeof(DamageType), newValue);
-        //        //collection.TryGetValue("DistanceFullDamage", out newValue);
-        //        //newWeapon.DistanceFullDamage = int.Parse(newValue); 
-        //        //collection.TryGetValue("DistanceTotal", out newValue);
-        //        //newWeapon.DistanceTotal = int.Parse(newValue);
-        //        //collection.TryGetValue("WeaponRange", out newValue);
-        //        //newWeapon.WeaponRange = (WeaponRange)Enum.Parse(typeof(WeaponRange), newValue);
-        //        //collection.TryGetValue("WeaponClass", out newValue);
-        //        //newWeapon.WeaponClass = (WeaponClass)Enum.Parse(typeof(WeaponClass), newValue);
-        //        //collection.TryGetValue("WeaponProperties", out newValue);
-        //        //foreach (var item in newValue)
-        //        //{
-        //        //    newWeapon.WeaponProperties.Add((WeaponProperty)Enum.Parse(typeof(WeaponProperty), item));
-        //        //}
-        //        //collection.TryGetValue("DamageDice", out newValue);
-        //        //newWeapon.DamageDice = (Dice)Enum.Parse(typeof(Dice), newValue);
-        //        //collection.TryGetValue("DamageDiceCount", out newValue);
-        //        //newWeapon.DamageDiceCount = int.Parse(newValue);
-
-
-        //        //IdCounter idCounter = jsonRW.ReadIdCounter();
-
-        //        //newWeapon.Id = idCounter.WeaponLastId + 1;
-        //        //weapons.Add(newWeapon);
-        //        //jsonRW.WriteWeapons(weapons);
-
-        //        //idCounter.WeaponLastId++;
-        //        //jsonRW.WriteIdCounter(idCounter);
-
-
-
-        //        return RedirectToAction(nameof(Index));         
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        //// GET: WeaponController/Edit/5
-        //public ActionResult Edit(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: WeaponController/Edit/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        //// GET: WeaponController/Delete/5
-        //public ActionResult Delete(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: WeaponController/Delete/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Delete(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+        public void ValidationWeapon(ref Weapon weapon) {
+            if (weapon.IsRanged) {
+                weapon.IsVersatile = false;
+                weapon.HasReach = false;
+                weapon.IsThrown = false;
+                weapon.IsAmmunition = true;
+            }
+            if (!weapon.IsRanged && !weapon.IsThrown) {
+                weapon.RangeLong = null;
+                weapon.RangeNormal = null;
+            }
+            if (!weapon.IsVersatile) {
+                weapon.DamageTwoHandedVersatile = null;
+            }
+        }    
     }
 }

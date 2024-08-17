@@ -9,123 +9,152 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table id="weaponTable" class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Damage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.IsMartial)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.IsRanged)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsFinesse)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsTwoHanded)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RangeNormal)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RangeLong)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsAmmunition)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HasReach)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsLight)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsThrown)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsSpecial)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RequiresReload)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsHeavy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsVersatile)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
+           
+
+
             <th>
                 @Html.DisplayNameFor(model => model.Description)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Weight)
-            </th>
+
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsMartial)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsRanged)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsFinesse)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsTwoHanded)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RangeNormal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RangeLong)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsAmmunition)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HasReach)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsLight)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsThrown)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsSpecial)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RequiresReload)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsHeavy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsVersatile)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Weight)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Damage.DiceCount)
+                    @Html.DisplayFor(modelItem => item.Damage.DiceType)
+                    @Html.DisplayFor(modelItem => item.Damage.DamageType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Weight)
+                </td>
+                <td>
+                    @if (item.IsMartial)
+                    {
+                        @:Воинское
+                    }
+                    else
+                    {
+                        @:Простое
+                    }
+                </td>
+                <td>
+                    @if (item.IsRanged)
+                    {
+                        @:Дальнобойное
+                    }
+                    else
+                    {
+                        @:Рукопашное
+                    }
+                </td>
+                
+
+                <td>
+                    @{
+                        var result = "";
+
+                        @if (item.IsAmmunition)
+                        {
+                            result += Html.DisplayNameFor(model => model.IsAmmunition) + " ";
+                        }
+                        @if (item.IsThrown)
+                        {
+                            result += Html.DisplayNameFor(model => model.IsThrown) + " ";
+                        }
+                        @if (item.IsAmmunition || item.IsThrown)
+                        {
+                            result += (item.RangeNormal.HasValue && item.RangeLong.HasValue
+                            ? $"({item.RangeNormal}/{item.RangeLong}) "
+                            : "");
+                        }
+                        @if (item.IsLight)
+                        {
+                            result += Html.DisplayNameFor(model => model.IsLight) + " ";
+                        }
+                        @if (item.IsTwoHanded)
+                        {
+                            result += Html.DisplayNameFor(model => model.IsTwoHanded) + " ";
+                        }
+                        @if (item.RequiresReload)
+                        {
+                            result += Html.DisplayNameFor(model => model.RequiresReload) + " ";
+                        }
+                        @if (item.HasReach)
+                        {
+                            result += Html.DisplayNameFor(model => model.HasReach) + " ";
+                        }
+                        @if (item.IsHeavy)
+                        {
+                            result += Html.DisplayNameFor(model => model.IsHeavy) + " ";
+                        }
+                        @if (item.IsFinesse)
+                        {
+                            result += Html.DisplayNameFor(model => model.IsFinesse) + " ";
+                        }
+                        @if (item.IsSpecial)
+                        {
+                            result += Html.DisplayNameFor(model => model.IsSpecial) + " ";
+                        }
+                        @if (item.IsVersatile)
+                        {
+                            result += Html.DisplayNameFor(model => model.IsVersatile) + " ";
+                            if (item.IsVersatile)
+                            {
+                                result += $"({item.Damage.DiceCount}{item.DamageTwoHandedVersatile})";
+                            }
+                        }
+
+                        // Trim to remove any trailing spaces
+                        result = result.Trim();
+                    }
+
+                    @result
+                    
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+<script>
+    new DataTable('#weaponTable', {
+        "paging": false,  // Если вам не нужна пагинация
+        "searching": true,  // Если вам нужен поиск
+        "ordering": true,  // Включение сортировки
+        "info": false,  // Если не нужно отображать информацию о таблице\
+        columnDefs: [
+            { orderable: false, targets: 6 } // Disable sorting for the 5th column (0-based index)
+        ]
+    });
+</script>

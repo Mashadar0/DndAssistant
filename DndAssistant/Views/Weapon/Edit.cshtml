@@ -2,9 +2,8 @@
 @model DndAssistant.Models.Items.Weapon
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
-
 <style>
     .form-inline {
         display: flex;
@@ -19,13 +18,13 @@
 
 </style>
 
-<h1>Create</h1>
+<h1>Edit</h1>
 
 <h4>Weapon</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
@@ -169,9 +168,9 @@
 
                 <div id="rangedFields">
                     @* <div class="form-group form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" asp-for="IsAmmunition" /> @Html.DisplayNameFor(model => model.IsAmmunition)
-                        </label>
+                    <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsAmmunition" /> @Html.DisplayNameFor(model => model.IsAmmunition)
+                    </label>
                     </div> *@
                     <div class="form-group form-check">
                         <label class="form-check-label">
@@ -218,9 +217,8 @@
                     <input asp-for="Description" class="form-control" />
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
-                </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -274,11 +272,10 @@
         // Добавить обработчики событий для радиокнопок
         meleeRadio.addEventListener('change', updateFields);
         rangedRadio.addEventListener('change', updateFields);
-        isThrown.addEventListener('change', updateFields);     
+        isThrown.addEventListener('change', updateFields);
         isVersatile.addEventListener('change', updateFields);
 
-       
+
     });
 
 </script>
-

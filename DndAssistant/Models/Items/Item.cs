@@ -21,7 +21,7 @@ namespace DndAssistant.Models.Items
 
 
         [Display(Name = "Цена")]
-        public Money? Cost { get; set; } = new();  // Стоимость предмета
+        public Money Cost { get; set; } = new();  // Стоимость предмета
 
         //public Item(int id, string name, string description, int weight, Money cost)
         //{

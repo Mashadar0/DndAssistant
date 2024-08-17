@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DndAssistant.Scripts
 {
-    public class Damage
+    public class DamagePhysical
     {
         [Required]
         [Display(Name = "Количество дайсов")]
@@ -15,7 +15,7 @@ namespace DndAssistant.Scripts
 
         [Required]
         [Display(Name = "Тип урона")]
-        public DamageType DamageType { get; set; }  // Тип урона
+        public DamageTypePhysical DamageType { get; set; }  // Тип урона
 
         //public Damage(int diceCount, Dice diceType, DamageType damageType)
         //{

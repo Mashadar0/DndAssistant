@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="datatables.net" Version="2.1.3" />
     <PackageReference Include="jQuery" Version="3.7.1" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.4" />
     <PackageReference Include="System.Collections" Version="4.3.0" />
   </ItemGroup>
 

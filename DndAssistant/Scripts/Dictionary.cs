@@ -47,7 +47,7 @@ namespace DndAssistant.Scripts
             Bludgeoning
         }
 
-        public enum DamageType
+        public enum DamageTypeFull
         {
             [Display(Name = "Колющий")]
             Stabbing,
