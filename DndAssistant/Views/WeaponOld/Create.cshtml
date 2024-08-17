@@ -1,0 +1,105 @@
+﻿@using static DndAssistant.Scripts.Dictionary;
+@model DndAssistant.Models.Items.Weapon
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Weapon</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @* <label asp-for="DamageType" class="control-label"></label> *@
+                @* <input asp-for="DamageType" class="form-control" />*@
+                @* <select asp-for="@Model.DamageType" asp-items="Html.GetEnumSelectList<DamageType>()"></select> *@
+                @* <span asp-validation-for="DamageType" class="text-danger"></span>  *@
+                @* @Html.DropDownList("DamageType", ViewBag.DamageType as SelectList)
+                @Html.DropDownLisFor(m => m.DamageType)
+                @Html.EnumDropDownListFor(model => model.MyEnumProperty) *@
+                
+            </div>
+      @*       <div class="form-group">
+                <label asp-for="DistanceFullDamage" class="control-label"></label>
+                <input asp-for="DistanceFullDamage" class="form-control" />
+                <span asp-validation-for="DistanceFullDamage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DistanceTotal" class="control-label"></label>
+                <input asp-for="DistanceTotal" class="form-control" />
+                <span asp-validation-for="DistanceTotal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WeaponRange" class="control-label"></label>
+                <select asp-for="@Model.WeaponRange" asp-items="Html.GetEnumSelectList<WeaponRange>()"></select>
+                <span asp-validation-for="WeaponRange" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WeaponClass" class="control-label"></label>
+                <select asp-for="@Model.WeaponClass" asp-items="Html.GetEnumSelectList<WeaponClass>()"></select>
+                <span asp-validation-for="WeaponClass" class="text-danger"></span>
+            </div> *@
+            
+            @* <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weight" class="control-label"></label>
+                <input asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cost" class="control-label"></label>
+                <input asp-for="Cost" class="form-control" />
+                <span asp-validation-for="Cost" class="text-danger"></span>
+            </div>
+          @*   <div class="form-group">
+                <label asp-for="MoneyType" class="control-label"></label>
+                <select asp-for="@Model.MoneyType" asp-items="Html.GetEnumSelectList<MoneyType>()"></select>
+                <span asp-validation-for="MoneyType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WeaponProperties" class="control-label"></label>
+                <select asp-for="@Model.WeaponProperties" asp-items="Html.GetEnumSelectList<WeaponProperty>()"></select>
+                <span asp-validation-for="WeaponProperties" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DamageDiceCount" class="control-label"></label>
+                <input asp-for="DamageDiceCount" class="form-control" />
+                <span asp-validation-for="DamageDiceCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DamageDice" class="control-label"></label>
+                <select asp-for="@Model.DamageDice" asp-items="Html.GetEnumSelectList<Dice>()"></select>
+                <span asp-validation-for="DamageDice" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

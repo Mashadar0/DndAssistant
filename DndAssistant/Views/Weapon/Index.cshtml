@@ -1,0 +1,131 @@
+﻿@model IEnumerable<DndAssistant.Models.Items.Weapon>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IsMartial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsRanged)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsFinesse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsTwoHanded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RangeNormal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RangeLong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsAmmunition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HasReach)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsLight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsThrown)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsSpecial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequiresReload)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsHeavy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsVersatile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsMartial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsRanged)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsFinesse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsTwoHanded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RangeNormal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RangeLong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAmmunition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasReach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsLight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsThrown)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsSpecial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequiresReload)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsHeavy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsVersatile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

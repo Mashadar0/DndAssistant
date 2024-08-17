@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 0,
+    "Name": "Инструменты кузнеца",
+    "Description": " ",
+    "Weight": 8,
+    "Cost": 20,
+    "MoneyType": 2
+  },
+  {
+    "Id": 1,
+    "Name": "Инструменты пивовара",
+    "Description": " ",
+    "Weight": 9,
+    "Cost": 20,
+    "MoneyType": 2
+  },
+  {
+    "Id": 2,
+    "Name": "Инструменты каменщика",
+    "Description": " ",
+    "Weight": 8,
+    "Cost": 10,
+    "MoneyType": 2
+  }
+]

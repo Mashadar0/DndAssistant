@@ -1,0 +1,380 @@
+﻿@using static DndAssistant.Scripts.Dictionary
+@model DndAssistant.Models.Items.Weapon
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<style>
+    .form-inline {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .form-money {
+        margin-right: 10px; /* Добавляет пространство между полем ввода и надписью */
+    }
+
+    .form-group {
+        margin-right: 15px; /* Отступ между элементами */
+    }
+
+</style>
+
+<h1>Create</h1>
+
+<h4>Weapon</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weight" class="control-label"></label>
+                <input asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+            <span>Цена</span>
+            <div class="form-group form-inline">
+                
+                <div class="form-group mr-2 form-inline">
+                    <input asp-for="Cost.Copper" class="form-control" style="width: 80px;" /> 
+                    <span>мм</span>
+                    <span asp-validation-for="Cost.Copper" class="text-danger"></span>
+                </div>
+                <div class="form-group mr-2 form-inline">
+                    <input asp-for="Cost.Silver" class="form-control" style="width: 80px;" /> 
+                    <span>см</span>
+                    <span asp-validation-for="Cost.Silver" class="text-danger"></span>
+                </div>
+                <div class="form-group mr-2 form-inline">
+                    <input asp-for="Cost.Gold" class="form-control" style="width: 80px;" /> 
+                    <span>зм</span>
+                    <span asp-validation-for="Cost.Gold" class="text-danger"></span>
+                </div>
+            </div>
+            <div id="damage-section" class="form-group damage-group">
+                <span>Урон</span>
+                @for (int i = 0; i < Model.Damages.Count; i++)
+                {
+                    <div class="form-group form-inline">
+                        <div class="form-group mr-2">
+                            <input asp-for="Damages[i].DiceCount" class="form-control" style="width: 80px;" />
+                            <span asp-validation-for="Damages[i].DiceCount" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mr-2">
+                            <select asp-for="Damages[i].DiceType" class="form-control" asp-items="Html.GetEnumSelectList<Dice>()" style="width: 80px;"></select>
+                            <span asp-validation-for="Damages[i].DiceType" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mr-2">
+                            <select asp-for="Damages[i].DamageType" class="form-control" asp-items="Html.GetEnumSelectList<DamageType>()" style="width: 120px;"></select>
+                            <span asp-validation-for="Damages[i].DamageType" class="text-danger"></span>
+                        </div>
+                    </div>
+                }
+
+                <!-- Скрытые элементы с текстами меток -->
+                <div id="hiddenLabels" style="display:none;">
+                    <span id="diceCountLabel">@Html.DisplayNameFor(model => model.Damages[0].DiceCount)</span>
+                    <span id="diceTypeLabel">@Html.DisplayNameFor(model => model.Damages[0].DiceType)</span>
+                    <span id="damageTypeLabel">@Html.DisplayNameFor(model => model.Damages[0].DamageType)</span>
+                </div>
+                <!-- Скрытый элемент с возможными значениями для DiceType -->
+                <select id="hiddenDiceType" style="display:none;">
+                    @foreach (var dice in Enum.GetValues(typeof(Dice)))
+                    {
+                        <option value="@((int)dice)">@dice</option>
+                    }
+                </select>
+
+                <!-- Скрытый элемент с возможными значениями для DamageType -->
+                <select id="hiddenDamageType" style="display:none;">
+                    @foreach (var damageType in Enum.GetValues(typeof(DamageType)))
+                    {
+                        <option value="@((int)damageType)">@damageType</option>
+                    }
+                </select>
+                <!-- Скрытые элементы для хранения опций выпадающих списков -->
+                <div id="hiddenSelectOptions" style="display:none;">
+                    <div id="diceTypeOptions">
+                        @foreach (var item in Html.GetEnumSelectList<Dice>())
+                        {
+                            <option value="@item.Value">@item.Text</option>
+                        }
+                    </div>
+                    <div id="damageTypeOptions">
+                        @foreach (var item in Html.GetEnumSelectList<DamageType>())
+                        {
+                            <option value="@item.Value">@item.Text</option>
+                        }
+                    </div>
+                </div>
+            </div>
+            <button type="button" id="add-damage" class="btn btn-secondary">Add Damage</button>
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input type="radio"
+                           name="IsMartial"
+                           value="false"
+                           id="simpleWeapon"
+                           class="form-check-input"
+                    @(Model.IsMartial ? "" : "checked='checked'") />
+                    <label class="form-check-label" for="simpleWeapon">
+                        Простое
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio"
+                           name="IsMartial"
+                           value="true"
+                           id="martialWeapon"
+                           class="form-check-input"
+                    @(Model.IsMartial ? "checked='checked'" : "") />
+                    <label class="form-check-label" for="martialWeapon">
+                        Воинское
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input type="radio"
+                           name="IsRanged"
+                           value="false"
+                           id="meleeWeapon"
+                           class="form-check-input"
+                    @(Model.IsRanged ? "" : "checked='checked'") />
+                    <label class="form-check-label" for="meleeWeapon">
+                        Рукопашное
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio"
+                           name="IsRanged"
+                           value="true"
+                           id="rangedWeapon"
+                           class="form-check-input"
+                    @(Model.IsRanged ? "checked='checked'" : "") />
+                    <label class="form-check-label" for="rangedWeapon">
+                        Дальнобойное
+                    </label>
+                </div>
+            </div>
+
+            <div id="meleeFields">
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="IsVersatile" /> @Html.DisplayNameFor(model => model.IsVersatile)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="HasReach" /> @Html.DisplayNameFor(model => model.HasReach)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" id="isThrown" asp-for="IsThrown" /> @Html.DisplayNameFor(model => model.IsThrown)
+                    </label>
+                </div>
+            </div>
+            
+
+            <div id="rangedAndThrownFields" class="form-group form-inline">
+                <div class="form-group">
+                    <label asp-for="RangeNormal" class="control-label"></label>
+                    <input asp-for="RangeNormal" class="form-control" style="width: 120px; />
+                    <span asp-validation-for="RangeNormal" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RangeLong" class="control-label"></label>
+                    <input asp-for="RangeLong" class="form-control" style="width: 120px; />
+                    <span asp-validation-for="RangeLong" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div id="rangedFields">
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="IsAmmunition" /> @Html.DisplayNameFor(model => model.IsAmmunition)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="RequiresReload" /> @Html.DisplayNameFor(model => model.RequiresReload)
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsFinesse" /> @Html.DisplayNameFor(model => model.IsFinesse)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsTwoHanded" /> @Html.DisplayNameFor(model => model.IsTwoHanded)
+                </label>
+            </div>
+
+
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsLight" /> @Html.DisplayNameFor(model => model.IsLight)
+                </label>
+            </div>
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsSpecial" /> @Html.DisplayNameFor(model => model.IsSpecial)
+                </label>
+            </div>
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsHeavy" /> @Html.DisplayNameFor(model => model.IsHeavy)
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const meleeRadio = document.getElementById('meleeWeapon');
+        const rangedRadio = document.getElementById('rangedWeapon');
+        const meleeFields = document.getElementById('meleeFields');
+        const rangedFields = document.getElementById('rangedFields');
+
+        const isThrown = document.getElementById('isThrown');
+        const rangedAndThrownFields = document.getElementById('rangedAndThrownFields');
+
+        function updateFields() {
+            if (rangedRadio.checked) {
+                rangedAndThrownFields.style.display = 'block';
+                rangedFields.style.display = 'block';
+                meleeFields.style.display = 'none';
+            } else if (isThrown.checked) {
+                rangedAndThrownFields.style.display = 'block';
+                rangedFields.style.display = 'none';
+                meleeFields.style.display = 'block';
+            } else if (meleeRadio.checked) {
+                rangedAndThrownFields.style.display = 'none';
+                rangedFields.style.display = 'none';
+                meleeFields.style.display = 'block';
+            }
+        }
+
+        // Инициализировать видимость полей при загрузке страницы
+        updateFields();
+
+        // Добавить обработчики событий для радиокнопок
+        meleeRadio.addEventListener('change', updateFields);
+        rangedRadio.addEventListener('change', updateFields);
+        isThrown.addEventListener('change', updateFields);
+
+        document.getElementById("add-damage").addEventListener("click", function () {
+            addDamageGroup();
+        });
+
+        function addDamageGroup() {
+            const damageSection = document.getElementById("damage-section");
+            let newDamageIndex = damageSection.children.length;
+
+            // Извлечение заранее отрендеренных опций из скрытых элементов
+            const diceTypeOptions = document.getElementById("diceTypeOptions").innerHTML;
+            const damageTypeOptions = document.getElementById("damageTypeOptions").innerHTML;
+
+            const diceCountLabel = document.getElementById("diceCountLabel").innerText;
+            const diceTypeLabel = document.getElementById("diceTypeLabel").innerText;
+            const damageTypeLabel = document.getElementById("damageTypeLabel").innerText;
+
+            let newDamage = `
+                <div class="damage-group form-inline">
+                <div class="form-group">
+                        <input name="Damages[${newDamageIndex}].DiceCount" class="form-control" style="width: 80px;" />
+                    <span class="text-danger" data-valmsg-for="Damages[${newDamageIndex}].DiceCount"></span>
+                </div>
+                <div class="form-group">
+                        <select name="Damages[${newDamageIndex}].DiceType" class="form-control" style="width: 80px;">
+                        ${diceTypeOptions}
+                    </select>
+                    <span class="text-danger" data-valmsg-for="Damages[${newDamageIndex}].DiceType"></span>
+                </div>
+                <div class="form-group">
+                        <select name="Damages[${newDamageIndex}].DamageType" class="form-control" style="width: 120px;">
+                        ${damageTypeOptions}
+                    </select>
+                    <span class="text-danger" data-valmsg-for="Damages[${newDamageIndex}].DamageType"></span>
+                </div>
+                <button type="button" class="btn btn-danger remove-damage">Remove</button>
+            </div>
+        `;
+
+            damageSection.insertAdjacentHTML('beforeend', newDamage);
+            addRemoveHandler();
+        }
+
+        function addRemoveHandler() {
+            document.querySelectorAll('.remove-damage').forEach(button => {
+                button.removeEventListener('click', removeDamageGroup);
+                button.addEventListener('click', removeDamageGroup);
+            });
+        }
+
+        function removeDamageGroup(event) {
+            const damageGroup = event.target.closest('.damage-group');
+            damageGroup.remove();
+            updateDamageGroupIndices();
+        }
+
+        function updateDamageGroupIndices() {
+            const damageGroups = document.querySelectorAll('.damage-group');
+
+            damageGroups.forEach((group, index) => {
+                group.querySelectorAll('input, select, label, span').forEach(element => {
+                    if (element.name) {
+                        element.name = element.name.replace(/\[\d+\]/, `[${index}]`);
+                    }
+                    if (element.id) {
+                        element.id = element.id.replace(/_\d+__/g, `_${index}__`);
+                    }
+                    if (element.getAttribute('data-valmsg-for')) {
+                        element.setAttribute('data-valmsg-for', element.getAttribute('data-valmsg-for').replace(/\[\d+\]/, `[${index}]`));
+                    }
+                    if (element.getAttribute('for')) {
+                        element.setAttribute('for', element.getAttribute('for').replace(/_\d+__/g, `_${index}__`));
+                    }
+                });
+            });
+        }
+
+        // Инициализация обработчиков событий при загрузке страницы
+        addRemoveHandler();
+    });
+
+</script>
+

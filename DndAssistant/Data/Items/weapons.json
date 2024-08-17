@@ -1,0 +1,47 @@
+[
+  {
+    "Damages": [
+      {
+        "DiceCount": 1,
+        "DiceType": 4,
+        "DamageType": 0
+      },
+      {
+        "DiceCount": 32,
+        "DiceType": 10,
+        "DamageType": 0
+      },
+      {
+        "DiceCount": 3,
+        "DiceType": 12,
+        "DamageType": 11
+      }
+    ],
+    "DamageTwoHandedVersatile": null,
+    "IsMartial": false,
+    "IsRanged": false,
+    "IsFinesse": true,
+    "IsTwoHanded": true,
+    "RangeNormal": 0,
+    "RangeLong": 0,
+    "IsAmmunition": false,
+    "HasReach": false,
+    "IsLight": true,
+    "IsThrown": false,
+    "IsSpecial": false,
+    "RequiresReload": false,
+    "IsHeavy": false,
+    "IsVersatile": false,
+    "Id": 1,
+    "Name": "sadsad",
+    "Description": null,
+    "Weight": 2,
+    "Cost": {
+      "Copper": 3,
+      "Silver": 34,
+      "Electrum": 0,
+      "Gold": 44,
+      "Platinum": 0
+    }
+  }
+]

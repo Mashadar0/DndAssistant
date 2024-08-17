@@ -1,0 +1,17 @@
+﻿@model bool?
+
+@if (Model.HasValue)
+{
+    if (Model.Value)
+    {
+        @:Экзотический
+    }
+    else
+    {
+        @:Обычный
+    }
+}
+else
+{
+    @:Не задано
+}

@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@* @model Character
+
+<h2>Character Details</h2>
+
+<p>Name: @Model.Name</p>
+<p>Race: @Model.Race?.Name</p>
+<p>Class: @Model.Class?.Name</p>
+
+<!-- Вы можете добавить больше полей здесь -->
+
+<a href="@Url.Action("Edit")">Edit Character</a>
+
+@model Character
+
+<h2>Edit Character</h2>
+
+<form asp-action="Edit" method="post">
+    <label>Name:</label>
+    <input asp-for="Name" />
+
+    <!-- Добавьте формы для остальных свойств -->
+
+    <button type="submit">Save</button>
+</form> *@

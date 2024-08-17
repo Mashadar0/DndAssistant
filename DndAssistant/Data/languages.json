@@ -1,0 +1,114 @@
+[
+  {
+    "Id": 1,
+    "Name": "Великаний",
+    "IsExotic": false,
+    "Writing": "Великанья",
+    "TypicalRepresentative": "Огры, великаны"
+  },
+  {
+    "Id": 2,
+    "Name": "Гномий",
+    "IsExotic": false,
+    "Writing": "Дварфская",
+    "TypicalRepresentative": "Гномы"
+  },
+  {
+    "Id": 3,
+    "Name": "Гоблинский",
+    "IsExotic": false,
+    "Writing": "Дварфская",
+    "TypicalRepresentative": "Гоблиноиды"
+  },
+  {
+    "Id": 4,
+    "Name": "Дварфский",
+    "IsExotic": false,
+    "Writing": "Дварфская",
+    "TypicalRepresentative": "Дварфы"
+  },
+  {
+    "Id": 5,
+    "Name": "Общий",
+    "IsExotic": false,
+    "Writing": "Общая",
+    "TypicalRepresentative": "Люди"
+  },
+  {
+    "Id": 6,
+    "Name": "Орочий",
+    "IsExotic": false,
+    "Writing": "Дварфская",
+    "TypicalRepresentative": "Орки"
+  },
+  {
+    "Id": 7,
+    "Name": "Полуросликов",
+    "IsExotic": false,
+    "Writing": "Общая",
+    "TypicalRepresentative": "Полурослики"
+  },
+  {
+    "Id": 8,
+    "Name": "Эльфийский",
+    "IsExotic": false,
+    "Writing": "Эльфийская",
+    "TypicalRepresentative": "Эльфы"
+  },
+  {
+    "Id": 9,
+    "Name": "Бездны",
+    "IsExotic": true,
+    "Writing": "Инфернальная",
+    "TypicalRepresentative": "Демоны"
+  },
+  {
+    "Id": 10,
+    "Name": "Глубинная Речь",
+    "IsExotic": true,
+    "Writing": "-",
+    "TypicalRepresentative": "Иллитиды, злобоглазы"
+  },
+  {
+    "Id": 11,
+    "Name": "Драконий",
+    "IsExotic": true,
+    "Writing": "Драконья",
+    "TypicalRepresentative": "Драконы, драконорождённые"
+  },
+  {
+    "Id": 12,
+    "Name": "Инфернальный",
+    "IsExotic": true,
+    "Writing": "Инфернальная",
+    "TypicalRepresentative": "Дьяволы"
+  },
+  {
+    "Id": 13,
+    "Name": "Небесный",
+    "IsExotic": true,
+    "Writing": "Небесная",
+    "TypicalRepresentative": "Небожители"
+  },
+  {
+    "Id": 14,
+    "Name": "Первичный",
+    "IsExotic": true,
+    "Writing": "Дварфская",
+    "TypicalRepresentative": "Элементали"
+  },
+  {
+    "Id": 15,
+    "Name": "Подземный",
+    "IsExotic": true,
+    "Writing": "Эльфийская",
+    "TypicalRepresentative": "Купцы Подземья"
+  },
+  {
+    "Id": 16,
+    "Name": "Сильван",
+    "IsExotic": true,
+    "Writing": "Эльфийская",
+    "TypicalRepresentative": "Фейские существа"
+  }
+]
