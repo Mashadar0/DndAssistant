@@ -10,7 +10,7 @@ using System.Linq;
 using System.Xml;
 using static DndAssistant.Scripts.Dictionary;
 
-namespace DndAssistant.Controllers
+namespace DndAssistant.Controllers.Items
 {
     public class WeaponController : Controller
     {
@@ -21,13 +21,13 @@ namespace DndAssistant.Controllers
         {
             //загрузка данных из файла
             weapons = await JsonRW.LoadDataAsync<Weapon>(filePathWeapons);
-            return View(weapons);
+            return View("~/Views/Items/Weapon/Index.cshtml", weapons);
         }
 
         // GET: WeaponController/Create
         public ActionResult Create()
         {
-            return View(new Weapon());
+            return View("~/Views/Items/Weapon/Create.cshtml", new Weapon());
         }
 
         // POST: WeaponController/Create
@@ -77,7 +77,7 @@ namespace DndAssistant.Controllers
                 return NotFound();
             }
 
-            return View(weapon);
+            return View("~/Views/Items/Weapon/Details.cshtml", weapon);
         }
 
         // GET: Weapon/Edit/5
@@ -96,7 +96,7 @@ namespace DndAssistant.Controllers
                 return NotFound();
             }
 
-            return View(weapon);
+            return View("~/Views/Items/Weapon/Edit.cshtml", weapon);
         }
 
         // POST: Weapon/Edit/5
@@ -126,7 +126,7 @@ namespace DndAssistant.Controllers
                 return NotFound();
             }
 
-            return View(weapon);
+            return View("~/Views/Items/Weapon/Edit.cshtml", weapon);
         }
 
         // GET: Weapon/Delete/5
@@ -145,7 +145,7 @@ namespace DndAssistant.Controllers
                 return NotFound();
             }
 
-            return View(weapon);
+            return View("~/Views/Items/Weapon/Delete.cshtml", weapon);
         }
 
         // POST: Weapon/Delete/5
@@ -165,20 +165,24 @@ namespace DndAssistant.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public void ValidationWeapon(ref Weapon weapon) {
-            if (weapon.IsRanged) {
+        public void ValidationWeapon(ref Weapon weapon)
+        {
+            if (weapon.IsRanged)
+            {
                 weapon.IsVersatile = false;
                 weapon.HasReach = false;
                 weapon.IsThrown = false;
                 weapon.IsAmmunition = true;
             }
-            if (!weapon.IsRanged && !weapon.IsThrown) {
+            if (!weapon.IsRanged && !weapon.IsThrown)
+            {
                 weapon.RangeLong = null;
                 weapon.RangeNormal = null;
             }
-            if (!weapon.IsVersatile) {
+            if (!weapon.IsVersatile)
+            {
                 weapon.DamageTwoHandedVersatile = null;
             }
-        }    
+        }
     }
 }

@@ -1,0 +1,210 @@
+[
+  {
+    "Id": 1,
+    "Name": "Стёганный",
+    "Description": "Лёгкий доспех, обеспечивает базовую защиту с возможностью модификации.",
+    "Weight": 8,
+    "Cost": {
+      "Copper": 0,
+      "Silver": 0, "Electrum": 0,
+      "Gold": 5,
+      "Platinum": 0
+    },
+    "DefenseValue": 11,
+    "ArmorClass": 0,
+    "StrengthRequirement": null,
+    "StealthDisadvantage": true
+  },
+  {
+    "Id": 2,
+    "Name": "Кожаный",
+    "Description": "Лёгкий доспех, предоставляющий базовый уровень защиты без помех к скрытности.",
+    "Weight": 10,
+    "Cost": {
+      "Copper": 0,
+      "Silver": 0, "Electrum": 0,
+      "Gold": 10,
+      "Platinum": 0
+    },
+    "DefenseValue": 11,
+    "ArmorClass": 0,
+    "StrengthRequirement": null,
+    "StealthDisadvantage": false
+  },
+  {
+    "Id": 3,
+    "Name": "Проклёпанная кожа",
+    "Description": "Лёгкий доспех с улучшенной защитой, но не подходит для скрытности.",
+    "Weight": 13,
+    "Cost": {
+      "Copper": 0,
+      "Silver": 0, "Electrum": 0,
+      "Gold": 45,
+      "Platinum": 0
+    },
+    "DefenseValue": 12,
+    "ArmorClass": 0,
+    "StrengthRequirement": null,
+    "StealthDisadvantage": false
+  },
+  {
+    "Id": 4,
+    "Name": "Шкурный",
+    "Description": "Средний доспех, обеспечивающий защиту с ограничением модификатора Ловкости.",
+    "Weight": 12,
+    "Cost": {
+      "Copper": 0,
+      "Silver": 0, "Electrum": 0,
+      "Gold": 10,
+      "Platinum": 0
+    },
+    "DefenseValue": 12,
+    "ArmorClass": 1,
+    "StrengthRequirement": null,
+    "StealthDisadvantage": true
+  },
+  {
+    "Id": 5,
+    "Name": "Кольчужная рубаха",
+    "Description": "Средний доспех, обеспечивающий хорошую защиту с ограничением модификатора Ловкости.",
+    "Weight": 20,
+    "Cost": {
+      "Copper": 0,
+      "Silver": 0, "Electrum": 0,
+      "Gold": 50,
+      "Platinum": 0
+    },
+    "DefenseValue": 13,
+    "ArmorClass": 1,
+    "StrengthRequirement": null,
+    "StealthDisadvantage": true
+  },
+  {
+    "Id": 6,
+    "Name": "Чешуйчатый",
+    "Description": "Средний доспех, предоставляющий усиленную защиту с помехой к скрытности.",
+    "Weight": 45,
+    "Cost": {
+      "Copper": 0,
+      "Silver": 0, "Electrum": 0,
+      "Gold": 50,
+      "Platinum": 0
+    },
+    "DefenseValue": 14,
+    "ArmorClass": 1,
+    "StrengthRequirement": null,
+    "StealthDisadvantage": true
+  },
+  {
+    "Id": 7,
+    "Name": "Кираса",
+    "Description": "Средний доспех, обеспечивающий хорошую защиту без помех к скрытности.",
+    "Weight": 20,
+    "Cost": {
+      "Copper": 0,
+      "Silver": 0, "Electrum": 0,
+      "Gold": 400,
+      "Platinum": 0
+    },
+    "DefenseValue": 14,
+    "ArmorClass": 1,
+    "StrengthRequirement": null,
+    "StealthDisadvantage": false
+  },
+  {
+    "Id": 8,
+    "Name": "Полулаты",
+    "Description": "Средний доспех, обеспечивающий отличную защиту с ограничением модификатора Ловкости и помехой к скрытности.",
+    "Weight": 40,
+    "Cost": {
+      "Copper": 0,
+      "Silver": 0, "Electrum": 0,
+      "Gold": 750,
+      "Platinum": 0
+    },
+    "DefenseValue": 15,
+    "ArmorClass": 1,
+    "StrengthRequirement": null,
+    "StealthDisadvantage": true
+  },
+  {
+    "Id": 9,
+    "Name": "Колечный",
+    "Description": "Тяжёлый доспех, обеспечивающий защиту с помехой к скрытности.",
+    "Weight": 40,
+    "Cost": {
+      "Copper": 0,
+      "Silver": 0, "Electrum": 0,
+      "Gold": 30,
+      "Platinum": 0
+    },
+    "DefenseValue": 14,
+    "ArmorClass": 2,
+    "StrengthRequirement": null,
+    "StealthDisadvantage": true
+  },
+  {
+    "Id": 10,
+    "Name": "Кольчуга",
+    "Description": "Тяжёлый доспех, обеспечивающий отличную защиту и требующий определенное значение силы.",
+    "Weight": 55,
+    "Cost": {
+      "Copper": 0,
+      "Silver": 0, "Electrum": 0,
+      "Gold": 75,
+      "Platinum": 0
+    },
+    "DefenseValue": 16,
+    "ArmorClass": 2,
+    "StrengthRequirement": 13,
+    "StealthDisadvantage": true
+  },
+  {
+    "Id": 11,
+    "Name": "Наборный",
+    "Description": "Тяжёлый доспех с отличной защитой, требующий высокое значение силы.",
+    "Weight": 60,
+    "Cost": {
+      "Copper": 0,
+      "Silver": 0, "Electrum": 0,
+      "Gold": 200,
+      "Platinum": 0
+    },
+    "DefenseValue": 17,
+    "ArmorClass": 2,
+    "StrengthRequirement": 15,
+    "StealthDisadvantage": true
+  },
+  {
+    "Id": 12,
+    "Name": "Латы",
+    "Description": "Тяжёлый доспех, предоставляющий максимальную защиту, требующий высокое значение силы.",
+    "Weight": 65,
+    "Cost": {
+      "Copper": 0,
+      "Silver": 0, "Electrum": 0,
+      "Gold": 1500,
+      "Platinum": 0
+    },
+    "DefenseValue": 18,
+    "ArmorClass": 2,
+    "StrengthRequirement": 15,
+    "StealthDisadvantage": true
+  },
+  {
+    "Id": 13,
+    "Name": "Щит",
+    "Description": "Щит, добавляющий бонус к классу доспехов.",
+    "Weight": 6,
+    "Cost": {
+      "Copper": 0,
+      "Silver": 0, "Electrum": 0,
+      "Gold": 10,
+      "Platinum": 0
+    },
+    "DefenseValue": 2,
+    "ArmorClass": 3,
+    "StrengthRequirement": null,
+    "StealthDisadvantage": false
+  }
+]

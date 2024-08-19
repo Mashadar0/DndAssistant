@@ -1,7 +1,7 @@
 ﻿using static DndAssistant.Scripts.Dictionary;
 using System.ComponentModel.DataAnnotations;
 
-namespace DndAssistant.Scripts
+namespace DndAssistant.Models.Other
 {
     public class DamagePhysical
     {
@@ -15,13 +15,6 @@ namespace DndAssistant.Scripts
 
         [Required]
         [Display(Name = "Тип урона")]
-        public DamageTypePhysical DamageType { get; set; }  // Тип урона
-
-        //public Damage(int diceCount, Dice diceType, DamageType damageType)
-        //{
-        //    DiceCount = diceCount;
-        //    DiceType = diceType;
-        //    DamageType = damageType;
-        //}
+        public DamageTypeFull DamageType { get; set; }  // Тип урона
     }
 }

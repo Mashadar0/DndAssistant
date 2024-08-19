@@ -1,4 +1,4 @@
-﻿using DndAssistant.Scripts;
+﻿using DndAssistant.Models.Other;
 using System.ComponentModel.DataAnnotations;
 using static DndAssistant.Scripts.Dictionary;
 

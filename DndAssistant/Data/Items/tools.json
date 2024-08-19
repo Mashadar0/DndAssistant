@@ -1,26 +1,483 @@
 [
   {
-    "Id": 0,
-    "Name": "����������� �������",
-    "Description": " ",
-    "Weight": 8,
-    "Cost": 20,
-    "MoneyType": 2
-  },
-  {
     "Id": 1,
-    "Name": "����������� ��������",
-    "Description": " ",
-    "Weight": 9,
-    "Cost": 20,
-    "MoneyType": 2
+    "Name": "Воровские инструменты",
+    "Description": null,
+    "Weight": 1.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 25,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
   },
   {
     "Id": 2,
-    "Name": "����������� ���������",
-    "Description": " ",
-    "Weight": 8,
-    "Cost": 10,
-    "MoneyType": 2
+    "Name": "Драконьи шахматы",
+    "Description": null,
+    "Weight": 0.5,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 1,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 3,
+    "Name": "Карты",
+    "Description": null,
+    "Weight": 0.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 5,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 4,
+    "Name": "Кости",
+    "Description": null,
+    "Weight": 0.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 1,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 5,
+    "Name": "Ставка трех драконов",
+    "Description": null,
+    "Weight": 0.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 1,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 6,
+    "Name": "Инструменты навигатора",
+    "Description": null,
+    "Weight": 2.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 25,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 7,
+    "Name": "Инструменты отравителя",
+    "Description": null,
+    "Weight": 2.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 50,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 8,
+    "Name": "Инструменты алхимика",
+    "Description": null,
+    "Weight": 8.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 50,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 9,
+    "Name": "Инструменты гончара",
+    "Description": null,
+    "Weight": 3.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 10,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 10,
+    "Name": "Инструменты жестянщика",
+    "Description": null,
+    "Weight": 10.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 50,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 11,
+    "Name": "Инструменты каллиграфа",
+    "Description": null,
+    "Weight": 5.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 10,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 12,
+    "Name": "Инструменты каменщика",
+    "Description": null,
+    "Weight": 8.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 10,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 13,
+    "Name": "Инструменты картографа",
+    "Description": null,
+    "Weight": 6.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 15,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 14,
+    "Name": "Инструменты кожевника",
+    "Description": null,
+    "Weight": 5.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 5,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 15,
+    "Name": "Инструменты кузнеца",
+    "Description": null,
+    "Weight": 8.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 20,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 16,
+    "Name": "Инструменты пивовара",
+    "Description": null,
+    "Weight": 9.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 20,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 17,
+    "Name": "Инструменты плотника",
+    "Description": null,
+    "Weight": 6.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 8,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 18,
+    "Name": "Инструменты повара",
+    "Description": null,
+    "Weight": 8.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 1,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 19,
+    "Name": "Инструменты резчика по дереву",
+    "Description": null,
+    "Weight": 5.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 1,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 20,
+    "Name": "Инструменты сапожника",
+    "Description": null,
+    "Weight": 5.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 5,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 21,
+    "Name": "Инструменты стеклодува",
+    "Description": null,
+    "Weight": 5.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 30,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 22,
+    "Name": "Инструменты ткача",
+    "Description": null,
+    "Weight": 5.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 1,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 23,
+    "Name": "Инструменты художника",
+    "Description": null,
+    "Weight": 5.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 10,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 24,
+    "Name": "Инструменты ювелира",
+    "Description": null,
+    "Weight": 2.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 25,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 25,
+    "Name": "Барабан",
+    "Description": null,
+    "Weight": 3.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 6,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 26,
+    "Name": "Виола",
+    "Description": null,
+    "Weight": 1.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 30,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 27,
+    "Name": "Волынка",
+    "Description": null,
+    "Weight": 6.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 30,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 28,
+    "Name": "Лира",
+    "Description": null,
+    "Weight": 2.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 30,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 29,
+    "Name": "Лютня",
+    "Description": null,
+    "Weight": 2.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 35,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 30,
+    "Name": "Рожок",
+    "Description": null,
+    "Weight": 2.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 3,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 31,
+    "Name": "Свирель",
+    "Description": null,
+    "Weight": 2.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 12,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 32,
+    "Name": "Флейта",
+    "Description": null,
+    "Weight": 1.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 2,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 33,
+    "Name": "Цимбалы",
+    "Description": null,
+    "Weight": 10.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 25,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 34,
+    "Name": "Шалмей",
+    "Description": null,
+    "Weight": 1.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 2,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 35,
+    "Name": "Набор для грима",
+    "Description": null,
+    "Weight": 3.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 25,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 36,
+    "Name": "Набор для фальсификации",
+    "Description": null,
+    "Weight": 5.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 15,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
+  },
+  {
+    "Id": 37,
+    "Name": "Набор травника",
+    "Description": null,
+    "Weight": 3.0,
+    "Cost": {
+      "Copper": 0,
+      "Gold": 5,
+      "Electrum": 0,
+      "Silver": 0,
+      "Platinum": 0
+    }
   }
 ]

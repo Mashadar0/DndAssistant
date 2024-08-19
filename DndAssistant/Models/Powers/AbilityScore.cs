@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace DndAssistant.Models
+namespace DndAssistant.Models.Powers
 {
-    public class AbilityScores
+    public class AbilityScore
     {
         [Display(Name = "Сила")]
         public int Strength { get; set; }

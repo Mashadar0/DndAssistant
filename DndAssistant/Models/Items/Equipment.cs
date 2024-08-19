@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace DndAssistant.Models
+namespace DndAssistant.Models.Items
 {
     public class Equipment
     {

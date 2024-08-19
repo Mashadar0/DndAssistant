@@ -22,6 +22,9 @@
                 @Html.DisplayNameFor(model => model.Weight)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Cost)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.IsMartial)
             </th>
             <th>
@@ -50,7 +53,27 @@
                     @Html.DisplayFor(modelItem => item.Damage.DamageType)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Weight)
+                    @Html.DisplayFor(modelItem => item.Weight) фнт.
+                </td>
+                <td>
+                    @{
+                        var money = "";
+                        if (item.Cost.Gold > 0)
+                        {
+                            money += $"{item.Cost.Gold} зм ";
+                        }
+                        if (item.Cost.Silver > 0)
+                        {
+                            money += $"{item.Cost.Silver} см ";
+                        }
+                        if (item.Cost.Copper > 0)
+                        {
+                            money += $"{item.Cost.Copper} мм ";
+                        }
+                        money = money.Trim();
+                    }
+                    
+                    @money
                 </td>
                 <td>
                     @if (item.IsMartial)
@@ -152,9 +175,9 @@
         "paging": false,  // Если вам не нужна пагинация
         "searching": true,  // Если вам нужен поиск
         "ordering": true,  // Включение сортировки
-        "info": false,  // Если не нужно отображать информацию о таблице\
+        "info": true,  // Если не нужно отображать информацию о таблице\
         columnDefs: [
-            { orderable: false, targets: 6 } // Disable sorting for the 5th column (0-based index)
+            { orderable: false, targets: 7 } // Disable sorting for the 5th column (0-based index)
         ]
     });
 </script>

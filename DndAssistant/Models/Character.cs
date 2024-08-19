@@ -1,6 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using System.Text.Json.Serialization;
+using DndAssistant.Models.Creatures;
+using DndAssistant.Models.Items;
+using DndAssistant.Models.Other;
+using DndAssistant.Models.Powers;
 using static DndAssistant.Scripts.Dictionary;
 
 namespace DndAssistant.Models
@@ -20,7 +24,7 @@ namespace DndAssistant.Models
         public Class? Class { get; set; }
 
         [Display(Name = "Характеристики")]
-        public AbilityScores? AbilityScores { get; set; }
+        public AbilityScore? AbilityScores { get; set; }
 
         [Display(Name = "Предыстория")]
         public Background? Background { get; set; }
@@ -32,7 +36,7 @@ namespace DndAssistant.Models
         public Skills? Skills { get; set; }
 
         [Display(Name = "Особенности")]
-        public List<Feature>? Features { get; set; }
+        public List<Trait>? Traits { get; set; }
 
         [Display(Name = "Заклинания")]
         public Spellcasting? Spellcasting { get; set; }
@@ -47,7 +51,7 @@ namespace DndAssistant.Models
         public Proficiencies? Proficiencies { get; set; }
 
         [Display(Name = "Языки")]
-        public Languages? Languages { get; set; }
+        public List<Language>? Languages { get; set; }
 
         //[JsonPropertyName("Порядковый номер")]
         //public int Id { get; set; }

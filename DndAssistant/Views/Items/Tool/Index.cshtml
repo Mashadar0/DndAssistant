@@ -1,0 +1,83 @@
+﻿@model IEnumerable<DndAssistant.Models.Items.Tool>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    @* <a asp-action="Create">Create New</a> *@
+</p>
+<table id="toolTable" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>          
+            @* <th></th> *@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Weight) фнт.
+                </td>
+                <td>
+                    @{
+                        var money = "";
+                        if (item.Cost.Gold > 0)
+                        {
+                            money += $"{item.Cost.Gold} зм ";
+                        }
+                        if (item.Cost.Silver > 0)
+                        {
+                            money += $"{item.Cost.Silver} см ";
+                        }
+                        if (item.Cost.Copper > 0)
+                        {
+                            money += $"{item.Cost.Copper} мм ";
+                        }
+                        money = money.Trim();
+                    }
+
+                    @money
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                @* <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td> *@
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+    new DataTable('#toolTable', {
+        "paging": false,  // Если вам не нужна пагинация
+        "searching": true,  // Если вам нужен поиск
+        "ordering": true,  // Включение сортировки
+        "info": true,  // Если не нужно отображать информацию о таблице\
+        // columnDefs: [
+        //     { orderable: false, targets: 7 } // Disable sorting for the 5th column (0-based index)
+        // ]
+    });
+</script>

@@ -1,11 +1,11 @@
-﻿namespace DndAssistant.Scripts
+﻿namespace DndAssistant.Models.Other
 {
     using System;
     using System.ComponentModel.DataAnnotations;
 
     public class Money(int copper = 0, int silver = 0, int electrum = 0, int gold = 0, int platinum = 0)
     {
-        [Display(Name ="Медь")]
+        [Display(Name = "Медь")]
         public int Copper { get; set; } = copper;
         [Display(Name = "Серебро")]
         public int Silver { get; set; } = silver;

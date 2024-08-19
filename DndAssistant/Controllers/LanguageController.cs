@@ -1,4 +1,4 @@
-﻿using DndAssistant.Models;
+﻿using DndAssistant.Models.Other;
 using DndAssistant.Scripts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

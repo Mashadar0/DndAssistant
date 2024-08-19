@@ -44,7 +44,9 @@ namespace DndAssistant.Scripts
             [Display(Name = "Рубящий")]
             Slashing,
             [Display(Name = "Дробящий")]
-            Bludgeoning
+            Bludgeoning,
+            [Display(Name = "")]
+            None
         }
 
         public enum DamageTypeFull
@@ -52,9 +54,11 @@ namespace DndAssistant.Scripts
             [Display(Name = "Колющий")]
             Stabbing,
             [Display(Name = "рубящий")]
-            Chopping,
+            Chopping, 
             [Display(Name = "дробящий")]
             Crushing,
+            [Display(Name = "")]
+            None,
             [Display(Name = "кислотный")]
             Acidic,
             [Display(Name = "холодный")]
@@ -79,58 +83,6 @@ namespace DndAssistant.Scripts
             Withering
         }
 
-        //public enum WeaponType
-        //{
-        //    [Display(Name = "Простое")]
-        //    Simple,
-        //    [Display(Name = "Воинское")]
-        //    Martial
-        //}
-
-        //public enum WeaponCategory
-        //{
-        //    [Display(Name = "Рукопашное")]
-        //    Melee,
-        //    [Display(Name = "Дальнобойное")]
-        //    Ranged
-        //}
-
-        //public enum WeaponProperty
-        //{
-        //    [Display(Name = "Боеприпас>")]
-        //    Ammunition,
-        //    [Display(Name = "Двуручное")]
-        //    TwoHanded,
-        //    [Display(Name = "Досягаемость")]
-        //    Long,
-        //    [Display(Name = "Легкое")]
-        //    LightWeight,
-        //    [Display(Name = "Метательное")]
-        //    Throwing,
-        //    [Display(Name = "Специальное")]
-        //    Special,
-        //    [Display(Name = "Перезарядка")]
-        //    Reload,
-        //    [Display(Name = "Тяжелое")]
-        //    Heavy,
-        //    [Display(Name = "Универсальное")]
-        //    Universal,
-        //    [Display(Name = "Фехтовальное")]
-        //    Fencing,
-        //    [Display(Name = "Нет")]
-        //    None
-        //}
-
-        //public enum MoneyType
-        //{
-        //    [Display(Name = "Медь")]
-        //    Copper,
-        //    [Display(Name = "Серебро")]
-        //    Silver,
-        //    [Display(Name = "Золото")]
-        //    Gold
-        //}
-
         public enum Dice
         {
             [Display(Name = "d4")]
@@ -146,7 +98,9 @@ namespace DndAssistant.Scripts
             [Display(Name = "d20")]
             d20 = 20,
             [Display(Name = "d100")]
-            d100 = 100
+            d100 = 100,
+            [Display(Name = "")]
+            None
         }
 
         public enum ArmorClass
@@ -159,6 +113,16 @@ namespace DndAssistant.Scripts
             High,
             [Display(Name = "Щит")]
             Shield
+        }
+
+        public enum CreatureSize
+        {
+            [Display(Name = "Маленький")]
+            Small,
+            [Display(Name = "Средний")]
+            Medium,
+            [Display(Name = "Большой")]
+            Large
         }
     }
 }

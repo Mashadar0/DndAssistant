@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DndAssistant.Models.Powers;
+using System.ComponentModel.DataAnnotations;
 
 namespace DndAssistant.Models
 {
@@ -11,7 +12,7 @@ namespace DndAssistant.Models
         public int? HitDie { get; set; }
 
         [Display(Name = "Особенности")]
-        public List<Feature>? Features { get; set; }
+        public List<Trait>? Traits { get; set; }
 
         [Display(Name = "Владение оружием")]
         public List<string>? WeaponProficiencies { get; set; }
